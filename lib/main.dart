@@ -51,6 +51,32 @@ class MyApp extends StatelessWidget {
           onGenerateTitle: (context) {
             return GmLocalizations.of(context).title;
           },
+          home: HomeRoute(),
+
+          locale: localeModel.getLocale(),
+
+          supportedLocales: [
+            const Locale('en', 'US'),
+            const Locale('zh', 'CN')
+          ],
+          localizationsDelegates: [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GmLocalizationsDelegate()
+          ],
+          localeResolutionCallback: (Locale _locale, Iterable<Locale> supportedLocales) {
+            if (localeModel.getLocale() != null) {
+              return localeModel.getLocale();
+            } else {
+              Locale locale;
+              if (supportedLocales.contains(_locale)) {
+                locale = _locale;
+              } else {
+                locale = Locale('en', 'US');
+              }
+              return locale;
+            }
+          },
         );
       }),
     );
