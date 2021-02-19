@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import "user.dart";
+// import "user.dart";
+import 'User.dart';
 import "cacheConfig.dart";
 part 'profile.g.dart';
 
