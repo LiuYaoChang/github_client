@@ -53,7 +53,3 @@ class Global {
     _prefs.setString("profile", jsonEncode(profile.toJson()));
 }
 
-RenderObject
-
-Image
-

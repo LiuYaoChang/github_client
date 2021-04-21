@@ -73,7 +73,7 @@ class Git {
       _options.extra.addAll({ "refresh": true, "list": true });
     }
 
-    var res = await dio.get<List<Repo>>("user/repos", queryParameters: queryParameters, options: _options);
+    var res = await dio.get<List>("user/repos", queryParameters: queryParameters, options: _options);
 
     return res.data.map((e) => Repo.fromJson(e)).toList();
   }
